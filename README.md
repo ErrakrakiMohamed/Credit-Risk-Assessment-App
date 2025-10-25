@@ -23,7 +23,6 @@ follow the installation instructions below to run the app locally.
 
 - Python 3.9 or higher
 - Git (for version control)
-- Git LFS (if handling large model files > 100MB)
 
 ### Setup Steps
 
@@ -44,19 +43,10 @@ follow the installation instructions below to run the app locally.
    pip install -r requirements.txt
    ```
 
-4. **Set Up Large Files** (if applicable)
-   
-   If `final_ann_model.h5` is larger than 100MB, install Git LFS:
-   ```bash
-   git lfs install
-   git lfs track "*.h5"
-   git add .gitattributes
-   ```
-
-5. **Verify Required Files**
+4. **Verify Required Files**
    
    Ensure the following files are in your project directory:
-   - `final_ann_model.h5` (pre-trained ANN model)
+   - `credit_risk_model.pkl` (pre-trained ANN model)
    - `minmax_scaler.pkl` (pre-trained scaler)
 
 ## Usage
@@ -65,7 +55,7 @@ follow the installation instructions below to run the app locally.
 
 Start the Streamlit application:
 ```bash
-streamlit run app2.py
+streamlit run app.py
 ```
 
 Open your browser and navigate to `http://localhost:8501`.
@@ -77,18 +67,6 @@ Open your browser and navigate to `http://localhost:8501`.
 3. Explore the **How It Works** and **About** tabs for additional information
 4. Adjust input values (income, credit score, etc.) to see how they impact the prediction
 
-## Project Structure
-
-```
-Credit-Risk-Assessment/
-├── app2.py                 # Main application logic
-├── ui.py                   # User interface components
-├── final_ann_model.h5      # Pre-trained ANN model
-├── minmax_scaler.pkl       # Pre-trained scaler file
-├── requirements.txt        # Python dependencies
-├── .gitignore              # Git ignore file
-└── README.md               # This file
-```
 
 ## Dependencies
 
