@@ -110,7 +110,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Contact
 
-- **GitHub**: [https://github.com/my]([https://github.com/my](https://github.com/ErrakrakiMohamed))
+- **GitHub**: [https://github.com/my]([[https://github.com/my](https://github.com/ErrakrakiMohamed)])
 - **Issues**: For questions or support, feel free to open an issue on the GitHub repository
 
 ## Acknowledgments
