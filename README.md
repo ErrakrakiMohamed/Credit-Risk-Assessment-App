@@ -29,7 +29,7 @@ follow the installation instructions below to run the app locally.
 
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/my/Credit-Risk-Assessment.git
+   git clone https://github.com/ErrakrakiMohamed/Credit-Risk-Assessment-App
    cd Credit-Risk-Assessment
    ```
 
