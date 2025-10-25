@@ -79,7 +79,6 @@ numpy==1.26.4
 tensorflow==2.16.2
 scikit-learn==1.5.1
 joblib==1.4.2
-plotly==5.22.0
 ```
 
 ## Model Information
@@ -111,12 +110,12 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Contact
 
-- **GitHub**: [https://github.com/my](https://github.com/my)
+- **GitHub**: [https://github.com/my]([https://github.com/my](https://github.com/ErrakrakiMohamed))
 - **Issues**: For questions or support, feel free to open an issue on the GitHub repository
 
 ## Acknowledgments
 
-- Built with [Streamlit](https://streamlit.io/), [TensorFlow](https://www.tensorflow.org/), and [Plotly](https://plotly.com/)
+- Built with [Streamlit](https://streamlit.io/), and [TensorFlow](https://www.tensorflow.org/)
 - Trained on LendingClub historical loan data (2007-2018)
 - Inspired by the need for accessible financial risk assessment tools
 
