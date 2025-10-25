@@ -2,7 +2,7 @@
 
 ![GitHub License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Python Version](https://img.shields.io/badge/python-3.9%2B-blue.svg)
-![Last Updated](https://img.shields.io/badge/last_updated-Oct_2025-green.svg)
+![Last Updated](https://img.shields.io/badge/last_updated-February_2025-green.svg)
 
 A Streamlit-based web application designed to evaluate loan approval odds using a pre-trained Artificial Neural Network (ANN) model. This project leverages machine learning to analyze financial data and provide personalized predictions and improvement tips based on user inputs.
 
@@ -14,13 +14,10 @@ A Streamlit-based web application designed to evaluate loan approval odds using 
 - **Educational Content**: Learn about factors influencing loan decisions via "How It Works" and "About" tabs
 - **Local Data Privacy**: Data is processed in-browser and not stored or shared
 
-## Demo
-
-A live demo is hosted on [Render](https://your-render-url.onrender.com) *(replace with your actual deployment URL)*.
-
-Alternatively, follow the installation instructions below to run the app locally.
 
 ## Installation
+
+follow the installation instructions below to run the app locally.
 
 ### Prerequisites
 
