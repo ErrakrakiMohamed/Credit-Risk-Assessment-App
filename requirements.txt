@@ -1,4 +1,6 @@
-streamlit==1.42.2
+Flask
+flask-cors
 pandas
 scikit-learn
 joblib
+black

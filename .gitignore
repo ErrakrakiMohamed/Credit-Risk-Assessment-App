@@ -1,0 +1,28 @@
+# Environments
+.env
+.venv
+env/
+venv/
+
+# Data (Never commit large datasets or sensitive data)
+*.csv
+*.dat
+*.xlsx
+
+# Jupyter Notebooks checkpoints
+.ipynb_checkpoints/
+
+# Python caching
+__pycache__/
+*.py[cod]
+*~
+*.swp
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Models 
+# (Note: In standard ML projects, .pkl files are ignored and pulled from cloud storage like S3. 
+# For this project, we are keeping them in Git since they are small, but here is the rule you'd normally use).
+# *.pkl

@@ -1,37 +1,52 @@
-import streamlit as st
+import os
 import pandas as pd
 import joblib
+from flask import Flask, request, jsonify, render_template
+from flask_cors import CORS
 
-# Load the model (no scaler needed since you trained on raw data)
-model = joblib.load("credit_risk_model.pkl")
+app = Flask(__name__)
+CORS(app)
 
-# Title and description
-st.title("Credit Risk Assessment")
-st.write("Enter your financial details to see your loan approval odds.")
+# Load the model
+try:
+    model = joblib.load("credit_risk_model.pkl")
+except Exception as e:
+    print(f"Error loading model: {e}")
+    model = None
 
-# Input form (matching your dataset columns)
-fico_range_low = st.number_input("FICO Credit Score", min_value=300, max_value=850, value=700)
-annual_inc = st.number_input("Annual Income ($)", min_value=0.0, value=48000.0)
-dti = st.number_input("Debt-to-Income Ratio (%)", min_value=0.0, max_value=100.0, value=20.0)
-loan_amnt = st.number_input("Loan Amount ($)", min_value=0.0, value=9000.0)
-revol_bal = st.number_input("Revolving Balance ($)", min_value=0.0, value=5000.0)
 
-# Predict button
-if st.button("Predict Approval Odds"):
-    # Create a DataFrame from inputs, matching your dataset order and column names
-    input_data = pd.DataFrame({
-        'fico_range_low': [fico_range_low],
-        'annual_inc': [annual_inc],
-        'dti': [dti],
-        'loan_amnt': [loan_amnt],
-        'revol_bal': [revol_bal]
-    })
+@app.route("/")
+def index():
+    return render_template("index.html")
 
-    # Predict probability (class 1 = Approved, class 0 = Not Approved)
-    prob = model.predict_proba(input_data)[0][1]  # Probability of approval
 
-    # Display result
-    st.success(f"Your loan approval odds: {prob:.2%}")
+@app.route("/predict", methods=["POST"])
+def predict():
+    if not model:
+        return jsonify({"error": "Model not loaded. Please check server logs."}), 500
 
-# Optional: Add a note for your portfolio
-st.write("Built with LendingClub data by [Your Name] for portfolio purposes.")
+    try:
+        data = request.json
+
+        # Create a DataFrame from inputs
+        input_data = pd.DataFrame(
+            {
+                "fico_range_low": [float(data.get("fico_range_low", 700))],
+                "annual_inc": [float(data.get("annual_inc", 48000))],
+                "dti": [float(data.get("dti", 20))],
+                "loan_amnt": [float(data.get("loan_amnt", 9000))],
+                "revol_bal": [float(data.get("revol_bal", 5000))],
+            }
+        )
+
+        # Probability of approval (class 1)
+        prob = model.predict_proba(input_data)[0][1]
+
+        return jsonify({"probability": float(prob)})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 400
+
+
+if __name__ == "__main__":
+    # Runs the application on port 5000
+    app.run(host="0.0.0.0", port=5000, debug=True)
